@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send His Word Ministries International</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="assets/img/logo/shwm_logo.png">
+    <style>
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1050;
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      }
+      .hero .carousel-item { height: 100vh; }
+      .hero .carousel-item img { height: 100vh; width: 100%; object-fit: cover; object-position: center 25%; }
+      .hero { background-color: #000; }
+      .hero .carousel-caption { bottom: 2rem; }
+      /* Glass fixed navbar so content scrolls underneath */
+      .glass-nav {
+        background: rgba(255,255,255,0.75);
+        backdrop-filter: saturate(180%) blur(10px);
+        -webkit-backdrop-filter: saturate(180%) blur(10px);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        z-index: 1080;
+      }
+      .navbar-brand { font-weight: 700; letter-spacing: 0.5px; }
+      /* Section helpers */
+      .section-padding { padding-top: 3rem; padding-bottom: 3rem; }
+      .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+      .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+      .btn-soft-primary { background: rgba(13,110,253,.12); color: #0d6efd; border: 1px solid rgba(13,110,253,.24); }
+      .btn-soft-primary:hover { background: rgba(13,110,253,.2); color: #0b5ed7; }
+      .gradient-cta { background: linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%); color: #fff; border-radius: 0.75rem; }
+      .gradient-cta .btn { border: 1px solid rgba(255,255,255,0.6); }
+      /* Ensure sections can scroll under fixed navbar without layout shift */
+      .hero { margin-top: 0; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light glass-nav fixed-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                  <img src="assets/img/logo/shwm_logo.png" alt="SHWMI logo" width="28" height="28" class="me-2">
+                  <span>SHWMI</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="discipleship.html">Discipleship</a></li>
+                        <li class="nav-item"><a class="nav-link" href="missions.html">Missions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="testimony.html">Testimony</a></li>
+                        <li class="nav-item"><a class="nav-link" href="church-service.html">Church Service</a></li>
+                        <li class="nav-item"><a class="nav-link" href="healing-school.html">Healing School</a></li>
+                        <li class="nav-item"><a class="nav-link" href="radio-ministry.html">Radio Ministry</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./assets/img/hero/home_hero_1.JPG" class="d-block w-100" alt="Send His Word Ministries International" loading="eager">
+                    <div class="carousel-caption">
+                      <h1 class="display-6 fw-bold">Send His Word Ministries International</h1>
+                      <p class="lead">Preaching Christ. Building disciples. Serving communities.</p>
+                      <div class="d-flex gap-2 justify-content-center">
+                        <a href="#ministries" class="btn btn-primary">Explore Ministries</a>
+                        <a href="contact.html" class="btn btn-outline-light">Contact Us</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/img/hero/home_hero_2.JPG" class="d-block w-100" alt="Worship Together" loading="lazy">
+                    <div class="carousel-caption">
+                      <h2 class="h1 fw-bold">Worship Together</h2>
+                      <p>Join our services—live and recorded—for prayer, worship, and the Word.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/img/hero/home_hero_3.JPG" class="d-block w-100" alt="Grow in Faith" loading="lazy">
+                    <div class="carousel-caption">
+                      <h2 class="h1 fw-bold">Grow in Faith</h2>
+                      <p>Discipleship programs that strengthen your walk with Christ.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/img/hero/home_hero_4.JPG" class="d-block w-100" alt="Serve the Community" loading="lazy">
+                    <div class="carousel-caption">
+                      <h2 class="h1 fw-bold">Serve the Community</h2>
+                      <p>Outreach, missions, and practical love in action.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/img/hero/home_hero_5.JPG" class="d-block w-100" alt="Share Your Testimony" loading="lazy">
+                    <div class="carousel-caption">
+                      <h2 class="h1 fw-bold">Share Your Testimony</h2>
+                      <p>Be a witness of what God has done in your life.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/img/hero/about_hero_5.JPG" class="d-block w-100" alt="Join Our Mission" loading="lazy">
+                    <div class="carousel-caption">
+                      <h2 class="h1 fw-bold">Join Our Mission</h2>
+                      <p>Partner with us in reaching nations with the Gospel.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Welcome intro -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-7">
+                        <h1 class="fw-bold mb-3">Welcome to Send His Word Ministries International</h1>
+                        <p class="lead mb-3">We preach Christ, build disciples, and serve communities with the love of God. Join us in worship, discipleship, missions, and testimonies of God's power today.</p>
+                        <div class="d-flex gap-2">
+                            <a href="#ministries" class="btn btn-primary">Explore Ministries</a>
+                            <a href="church-service.html" class="btn btn-soft-primary">Attend a Service</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="p-4 bg-light rounded-3 border">
+                            <h5 class="fw-semibold">Service Times</h5>
+                            <ul class="mb-0">
+                                <li>Sunday Worship: 10:00 AM</li>
+                                <li>Midweek Prayer: Wed 6:30 PM</li>
+                                <li>Healing School: Fri 5:00 PM</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ministries grid -->
+        <section id="ministries" class="section-padding bg-light">
+            <div class="container">
+                <h2 class="fw-bold mb-4 text-center">Our Ministries</h2>
+                <div class="row g-4">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <i class="fa-solid fa-church text-primary mb-3"></i>
+                                <h5 class="card-title">Church Service</h5>
+                                <p class="card-text">Worship, Word, and fellowship—experience God's presence together.</p>
+                                <a href="church-service.html" class="stretched-link">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <i class="fa-solid fa-seedling text-success mb-3"></i>
+                                <h5 class="card-title">Discipleship</h5>
+                                <p class="card-text">Grow through Bible study, mentorship, and community groups.</p>
+                                <a href="discipleship.html" class="stretched-link">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <i class="fa-solid fa-hands-holding-child text-warning mb-3"></i>
+                                <h5 class="card-title">Missions</h5>
+                                <p class="card-text">Outreach, baptism, and seminars—sharing Christ locally and globally.</p>
+                                <a href="missions.html" class="stretched-link">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <i class="fa-solid fa-heart-pulse text-danger mb-3"></i>
+                                <h5 class="card-title">Healing School</h5>
+                                <p class="card-text">Prayer, faith, and restoration in Christ.</p>
+                                <a href="healing-school.html" class="stretched-link">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <i class="fa-solid fa-radio text-secondary mb-3"></i>
+                                <h5 class="card-title">Radio Ministry</h5>
+                                <p class="card-text">Teachings, worship, and prayer on air.</p>
+                                <a href="radio-ministry.html" class="stretched-link">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <i class="fa-solid fa-comments text-info mb-3"></i>
+                                <h5 class="card-title">Testimonies</h5>
+                                <p class="card-text">Stories of transformation and faith.</p>
+                                <a href="testimony.html" class="stretched-link">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events highlights -->
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="fw-bold mb-4 text-center">Upcoming Highlights</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <span class="badge bg-primary mb-2">Sun</span>
+                                <h5 class="card-title">Sunday Worship</h5>
+                                <p class="card-text">Join our main service at 10:00 AM. All are welcome.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <span class="badge bg-success mb-2">Wed</span>
+                                <h5 class="card-title">Midweek Prayer</h5>
+                                <p class="card-text">A powerful time of corporate prayer and intercession.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <span class="badge bg-warning text-dark mb-2">Fri</span>
+                                <h5 class="card-title">Healing School</h5>
+                                <p class="card-text">Experience God's restorative power through prayer and faith.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonies preview -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <h2 class="fw-bold mb-4 text-center">Recent Testimonies</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <p class="mb-1 fw-semibold">Healing Breakthrough</p>
+                                <p class="mb-0">“After prayer, I received total healing…”</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <p class="mb-1 fw-semibold">Family Restored</p>
+                                <p class="mb-0">“God brought reconciliation in our home…”</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <p class="mb-1 fw-semibold">Provision Testimony</p>
+                                <p class="mb-0">“The Lord provided a job against all odds…”</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="testimony.html" class="btn btn-outline-primary">Read more testimonies</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donate CTA -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="gradient-cta p-5 text-center">
+                    <h2 class="fw-bold mb-2">Partner With Us</h2>
+                    <p class="mb-4">Your generosity fuels missions, discipleship, and outreach.</p>
+                    <a href="church-service.html" class="btn btn-light">Ways to Give</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <div class="row align-items-center g-3">
+                    <div class="col-lg-6">
+                        <h3 class="fw-bold mb-2">Stay Updated</h3>
+                        <p class="mb-0">Get updates on services, missions, and testimonies.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <form class="d-flex gap-2">
+                            <input type="email" class="form-control" placeholder="Your email" required>
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center py-3">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2023 Send His Word Ministries International. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex gap-3 justify-content-md-end justify-content-start mb-2">
+                        <a href="#" class="text-decoration-none text-dark" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-decoration-none text-dark" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-x-twitter fa-lg"></i></a>
+                        <a href="#" class="text-decoration-none text-dark" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-decoration-none text-dark" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube fa-lg"></i></a>
+                        <a href="https://wa.me/1234567890" class="text-decoration-none text-success" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp fa-lg"></i></a>
+                    </div>
+                    <p class="mb-0">Contact: info@shwmi.org | Phone: +1 (123) 456-7890</p>
+                    <p class="mb-0">Address: 123 Faith Street, City, Country</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/1234567890" class="btn btn-success whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Smooth scroll for in-page anchors
+      document.addEventListener('click', function(e) {
+        const a = e.target.closest('a[href^="#"]');
+        if (a && a.getAttribute('href') !== '#') {
+          const id = a.getAttribute('href');
+          const el = document.querySelector(id);
+          if (el) {
+            e.preventDefault();
+            el.scrollIntoView({ behavior: 'smooth' });
+            const nav = document.querySelector('.navbar');
+            if (nav && window.getComputedStyle(nav).position === 'fixed') {
+              // Optional: slight offset after scroll for readability
+              setTimeout(() => window.scrollBy({ top: -8, left: 0, behavior: 'instant' }), 300);
+            }
+          }
+        }
+      });
+      // Collapse navbar after clicking a nav-link (on mobile)
+      const navCollapse = document.getElementById('navbarNav');
+      if (navCollapse) {
+        navCollapse.addEventListener('click', (e) => {
+          if (e.target.classList.contains('nav-link')) {
+            const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navCollapse);
+            bsCollapse.hide();
+          }
+        });
+      }
+    </script>
+</body>
+</html>
