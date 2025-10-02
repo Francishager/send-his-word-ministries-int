@@ -6,51 +6,13 @@
     <title>Send His Word Ministries International</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" type="image/svg+xml" href="assets/img/logo/shwm_logo.png">
-    <style>
-      .whatsapp-float {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1050;
-        border-radius: 50%;
-        width: 56px;
-        height: 56px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      }
-      .hero .carousel-item { height: 100vh; }
-      .hero .carousel-item img { height: 100vh; width: 100%; object-fit: cover; object-position: center 25%; }
-      .hero { background-color: #000; }
-      .hero .carousel-caption { bottom: 2rem; }
-      /* Glass fixed navbar so content scrolls underneath */
-      .glass-nav {
-        background: rgba(255,255,255,0.75);
-        backdrop-filter: saturate(180%) blur(10px);
-        -webkit-backdrop-filter: saturate(180%) blur(10px);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        z-index: 1080;
-      }
-      .navbar-brand { font-weight: 700; letter-spacing: 0.5px; }
-      /* Section helpers */
-      .section-padding { padding-top: 3rem; padding-bottom: 3rem; }
-      .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
-      .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
-      .btn-soft-primary { background: rgba(13,110,253,.12); color: #0d6efd; border: 1px solid rgba(13,110,253,.24); }
-      .btn-soft-primary:hover { background: rgba(13,110,253,.2); color: #0b5ed7; }
-      .gradient-cta { background: linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%); color: #fff; border-radius: 0.75rem; }
-      .gradient-cta .btn { border: 1px solid rgba(255,255,255,0.6); }
-      /* Ensure sections can scroll under fixed navbar without layout shift */
-      .hero { margin-top: 0; }
-    </style>
+    <link rel="icon" type="image/png" href="assets/img/logo/shwm_logo.png">
+    <link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body>
+<body class="home">
     <!-- Header -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light glass-nav fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="index.html">
                   <img src="assets/img/logo/shwm_logo.png" alt="SHWMI logo" width="28" height="28" class="me-2">
@@ -142,8 +104,8 @@
     <!-- Main Content -->
     <main>
         <!-- Welcome intro -->
-        <section class="section-padding">
-            <div class="container">
+        <section class="section-padding home-intro">
+            <div class="container fade-up">
                 <div class="row align-items-center g-4">
                     <div class="col-lg-7">
                         <h1 class="fw-bold mb-3">Welcome to Send His Word Ministries International</h1>
@@ -167,9 +129,36 @@
             </div>
         </section>
 
+        <!-- Featured Message -->
+        <section class="section-padding home-featured">
+            <div class="container fade-up">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="fw-bold mb-3">Featured Message</h2>
+                        <p class="lead mb-3">He sent His Word—be encouraged by this week’s message on faith, hope, and love.</p>
+                        <ul class="mb-3 list-unstyled">
+                            <li class="mb-1"><i class="fa-solid fa-check text-success me-2"></i> Christ-centered teaching</li>
+                            <li class="mb-1"><i class="fa-solid fa-check text-success me-2"></i> Practical discipleship</li>
+                            <li><i class="fa-solid fa-check text-success me-2"></i> Spirit-led prayer</li>
+                        </ul>
+                        <a href="church-service.html" class="btn btn-primary me-2">Watch Service</a>
+                        <a href="#newsletter" class="btn btn-outline-light">Get Updates</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-4 bg-light rounded-3 border">
+                            <blockquote class="mb-0">
+                                <p class="fs-5 mb-2">“He sent His word, and healed them, and delivered them from their destructions.”</p>
+                                <footer class="text-muted">Psalm 107:20</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Ministries grid -->
-        <section id="ministries" class="section-padding bg-light">
-            <div class="container">
+        <section id="ministries" class="section-padding home-ministries">
+            <div class="container fade-up">
                 <h2 class="fw-bold mb-4 text-center">Our Ministries</h2>
                 <div class="row g-4">
                     <div class="col-12 col-md-6 col-lg-4">
@@ -237,8 +226,8 @@
         </section>
 
         <!-- Events highlights -->
-        <section class="section-padding">
-            <div class="container">
+        <section class="section-padding home-events">
+            <div class="container fade-up">
                 <h2 class="fw-bold mb-4 text-center">Upcoming Highlights</h2>
                 <div class="row g-4">
                     <div class="col-md-4">
@@ -273,8 +262,8 @@
         </section>
 
         <!-- Testimonies preview -->
-        <section class="section-padding bg-light">
-            <div class="container">
+        <section class="section-padding home-testimonies">
+            <div class="container fade-up">
                 <h2 class="fw-bold mb-4 text-center">Recent Testimonies</h2>
                 <div class="row g-4">
                     <div class="col-md-4">
@@ -309,9 +298,9 @@
         </section>
 
         <!-- Donate CTA -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="gradient-cta p-5 text-center">
+        <section class="section-padding home-donate">
+            <div class="container fade-up">
+                <div class="gradient-cta p-5 text-center fade-up">
                     <h2 class="fw-bold mb-2">Partner With Us</h2>
                     <p class="mb-4">Your generosity fuels missions, discipleship, and outreach.</p>
                     <a href="church-service.html" class="btn btn-light">Ways to Give</a>
@@ -320,8 +309,8 @@
         </section>
 
         <!-- Newsletter -->
-        <section class="section-padding bg-light">
-            <div class="container">
+        <section id="newsletter" class="section-padding home-newsletter">
+            <div class="container fade-up">
                 <div class="row align-items-center g-3">
                     <div class="col-lg-6">
                         <h3 class="fw-bold mb-2">Stay Updated</h3>
@@ -339,22 +328,61 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer pt-5">
         <div class="container">
-            <div class="row align-items-center py-3">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; 2023 Send His Word Ministries International. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <div class="d-flex gap-3 justify-content-md-end justify-content-start mb-2">
-                        <a href="#" class="text-decoration-none text-dark" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="text-decoration-none text-dark" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-x-twitter fa-lg"></i></a>
-                        <a href="#" class="text-decoration-none text-dark" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-decoration-none text-dark" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube fa-lg"></i></a>
-                        <a href="https://wa.me/1234567890" class="text-decoration-none text-success" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp fa-lg"></i></a>
+            <div class="row g-4 pb-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="assets/img/logo/shwm_logo.png" alt="SHWMI logo" width="28" height="28" class="me-2">
+                        <h5 class="mb-0">Send His Word Ministries International</h5>
                     </div>
-                    <p class="mb-0">Contact: info@shwmi.org | Phone: +1 (123) 456-7890</p>
-                    <p class="mb-0">Address: 123 Faith Street, City, Country</p>
+                    <p class="mb-3">Preaching Christ. Building disciples. Serving communities with the love of God.</p>
+                    <div class="social d-flex gap-2">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/1234567890" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="text-uppercase fw-semibold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="about.html">About</a></li>
+                        <li class="mb-2"><a href="church-service.html">Services</a></li>
+                        <li class="mb-2"><a href="missions.html">Missions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <h6 class="text-uppercase fw-semibold mb-3">Ministries</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="discipleship.html">Discipleship</a></li>
+                        <li class="mb-2"><a href="healing-school.html">Healing School</a></li>
+                        <li class="mb-2"><a href="radio-ministry.html">Radio Ministry</a></li>
+                        <li><a href="testimony.html">Testimonies</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-12 col-lg-3">
+                    <h6 class="text-uppercase fw-semibold mb-3">Visit Us</h6>
+                    <ul class="list-unstyled mb-3">
+                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i>123 Faith Street, City, Country</li>
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2"></i>+1 (123) 456-7890</li>
+                        <li><i class="fa-solid fa-envelope me-2"></i>info@shwmi.org</li>
+                    </ul>
+                    <h6 class="text-uppercase fw-semibold mb-2">Service Times</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-1">Sunday Worship: 10:00 AM</li>
+                        <li class="mb-1">Midweek Prayer: Wed 6:30 PM</li>
+                        <li>Healing School: Fri 5:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom py-3">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    <small>© 2023 Send His Word Ministries International. All rights reserved.</small>
+                    <div class="small">Email: info@shwmi.org • Phone: +1 (123) 456-7890</div>
                 </div>
             </div>
         </div>
@@ -366,34 +394,6 @@
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      // Smooth scroll for in-page anchors
-      document.addEventListener('click', function(e) {
-        const a = e.target.closest('a[href^="#"]');
-        if (a && a.getAttribute('href') !== '#') {
-          const id = a.getAttribute('href');
-          const el = document.querySelector(id);
-          if (el) {
-            e.preventDefault();
-            el.scrollIntoView({ behavior: 'smooth' });
-            const nav = document.querySelector('.navbar');
-            if (nav && window.getComputedStyle(nav).position === 'fixed') {
-              // Optional: slight offset after scroll for readability
-              setTimeout(() => window.scrollBy({ top: -8, left: 0, behavior: 'instant' }), 300);
-            }
-          }
-        }
-      });
-      // Collapse navbar after clicking a nav-link (on mobile)
-      const navCollapse = document.getElementById('navbarNav');
-      if (navCollapse) {
-        navCollapse.addEventListener('click', (e) => {
-          if (e.target.classList.contains('nav-link')) {
-            const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navCollapse);
-            bsCollapse.hide();
-          }
-        });
-      }
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
