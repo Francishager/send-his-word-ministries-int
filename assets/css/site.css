@@ -5,7 +5,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1050;
+  z-index: 1040;
   border-radius: 50%;
   width: 56px;
   height: 56px;
@@ -14,7 +14,82 @@
   justify-content: center;
   font-size: 24px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  background: #25D366 !important; /* WhatsApp green */
+  color: #fff !important;
+  border: 0 !important;
 }
+.whatsapp-float:hover { background: #1ebe57 !important; color: #fff !important; }
+.whatsapp-float:active { background: #1aae4f !important; color: #fff !important; }
+
+/* WhatsApp small composer popover */
+.wa-composer {
+  position: fixed;
+  bottom: 20px; /* align vertically with the button */
+  right: 88px;  /* sit to the left side of the button */
+  width: 300px;
+  max-width: calc(100vw - 120px);
+  background: #f0f2f5; /* WhatsApp-like backdrop */
+  color: #0f141a;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  z-index: 1070; /* above the button */
+  overflow: hidden;
+}
+.wa-composer::after {
+  content: "";
+  position: absolute;
+  right: -7px; /* arrow points to the floating button */
+  bottom: 41px; /* vertically align to button center (56/2 + 20 - 7) */
+  width: 14px;
+  height: 14px;
+  background: #f0f2f5;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  border-right: 1px solid rgba(0,0,0,0.08);
+  transform: rotate(45deg);
+}
+.wa-composer .wa-header {
+  padding: 0.5rem 0.75rem;
+  background: #128C7E; /* WhatsApp green */
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.wa-composer .form-control-sm {
+  min-height: 36px;
+}
+.wa-composer .wa-input { gap: 0.5rem; }
+.wa-composer .wa-textarea {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 18px;
+  resize: none;
+  padding: 6px 10px;
+  line-height: 1.2;
+}
+.wa-composer .wa-textarea:focus {
+  box-shadow: none;
+  border-color: #c8c8c8;
+}
+.wa-composer .wa-send-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #25D366; /* WhatsApp send */
+  border: none;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.wa-composer .wa-send-btn:hover { background: #1ebe57; }
+.wa-composer .wa-send-btn:active { background: #1aae4f; }
+.wa-composer .wa-error {
+  display: none;
+  color: #dc3545;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+.wa-composer.show-error .wa-error { display: block; }
 
 /* Hero */
 .hero { margin-top: 0; background-color: #000; position: relative; overflow: hidden; }
@@ -86,3 +161,18 @@
 .footer .social a { width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.25); border-radius: 50%; color: #e9eef5; transition: all .2s ease; }
 .footer .social a:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.4); transform: translateY(-2px); }
 .footer .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); }
+
+/* ---- Generic dark-tinted sections & soft surfaces ---- */
+.section-alt { background-color: #0f141a; color: #e9eef5; }
+.section-alt a { color: #8bb4ff; }
+.section-alt a:hover { color: #a9c7ff; }
+.section-alt .card { background-color: #141a22; border-color: #28303a; color: #e6ebf2; }
+.section-alt .card .card-title { color: #eaf1ff; }
+.section-alt .card .card-text { color: #cdd6e6; }
+.surface-soft { background-color: #141a22; border-color: #28303a !important; color: #e6ebf2; }
+
+/* Mini carousels (section images) */
+.mini-carousel .carousel-item { height: 320px; }
+@media (min-width: 768px) { .mini-carousel .carousel-item { height: 360px; } }
+@media (min-width: 1200px) { .mini-carousel .carousel-item { height: 420px; } }
+.mini-carousel .carousel-item img { height: 100%; width: 100%; object-fit: cover; object-position: center; display: block; }

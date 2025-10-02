@@ -6,14 +6,18 @@
     <title>Missions - Send His Word Ministries International</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/img/logo/shwm_logo.png">
     <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
     <!-- Header -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="index.html">SHWMI</a>
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="assets/img/logo/shwm_logo.png" alt="SHWMI logo" width="28" height="28" class="me-2">
+                    <span>SHWMI</span>
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,26 +47,30 @@
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://via.placeholder.com/1920x600/0d6efd/FFFFFF?text=Missions" class="d-block w-100" alt="Missions" loading="eager">
+                    <img src="./assets/img/hero/home_hero_1.JPG" class="d-block w-100" alt="To the Nations" loading="eager">
+                    <div class="carousel-caption fade-up">
+                        <h1 class="display-6 fw-bold">To the Nations</h1>
+                        <p>Preach the Gospel. Make disciples. Serve with love.</p>
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://via.placeholder.com/1920x600/6610f2/FFFFFF?text=Outreach" class="d-block w-100" alt="Outreach" loading="lazy">
+                    <img src="./assets/img/hero/about_hero_4.JPG" class="d-block w-100" alt="Serve Communities" loading="lazy">
+                    <div class="carousel-caption fade-up">
+                        <h2 class="h1 fw-bold">Serve Communities</h2>
+                        <p>Medical camps, food outreaches, and care for families.</p>
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://via.placeholder.com/1920x600/6f42c1/FFFFFF?text=Baptism" class="d-block w-100" alt="Baptism" loading="lazy">
+                    <img src="./assets/img/hero/home_hero_2.JPG" class="d-block w-100" alt="Outreach" loading="lazy">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://via.placeholder.com/1920x600/d63384/FFFFFF?text=Seminars" class="d-block w-100" alt="Seminars" loading="lazy">
+                    <img src="./assets/img/hero/home_hero_5.JPG" class="d-block w-100" alt="Baptism and Teaching" loading="lazy">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://via.placeholder.com/1920x600/f03e3e/FFFFFF?text=Community+Support" class="d-block w-100" alt="Community Support" loading="lazy">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://via.placeholder.com/1920x600/198754/FFFFFF?text=Global+Mission" class="d-block w-100" alt="Global Mission" loading="lazy">
+                    <img src="./assets/img/hero/about_hero_3.JPG" class="d-block w-100" alt="Global Mission" loading="lazy">
                 </div>
             </div>
             
@@ -70,45 +78,316 @@
     </section>
 
     <!-- Main Content -->
-    <main class="container my-5">
-        <h1>Missions</h1>
-        
-        <section class="mb-5">
-            <h2>Outreach</h2>
-            <p>Our outreach programs aim to spread God's love to communities in need.</p>
-            <p>We organize events, provide support, and share the gospel through various initiatives.</p>
+    <main>
+        <!-- Missions Overview -->
+        <section class="section-padding">
+            <div class="container fade-up">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6">
+                        <h1 class="fw-bold mb-3">Our Mission</h1>
+                        <p class="lead mb-3">We proclaim Christ, plant churches, and serve communities locally and globally.</p>
+                        <ul class="list-unstyled mb-3">
+                            <li class="mb-2"><i class="fa-solid fa-bullhorn text-primary me-2"></i> Evangelism & outreach campaigns</li>
+                            <li class="mb-2"><i class="fa-solid fa-church text-success me-2"></i> Church planting & leadership training</li>
+                            <li><i class="fa-solid fa-hand-holding-heart text-warning me-2"></i> Community care & relief</li>
+                        </ul>
+                        <a href="#initiatives" class="btn btn-primary me-2">See Initiatives</a>
+                        <a href="#partner" class="btn btn-soft-primary">Partner With Us</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="rounded-3 border surface-soft p-2">
+                            <div id="missionsIntroCarousel" class="carousel slide carousel-fade mini-carousel" data-bs-ride="carousel" data-bs-interval="2600">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="./assets/img/hero/about_hero_4.JPG" class="d-block w-100 rounded-3" alt="Outreach">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./assets/img/hero/home_hero_4.JPG" class="d-block w-100 rounded-3" alt="Serving">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./assets/img/hero/about_hero_5.JPG" class="d-block w-100 rounded-3" alt="Community care">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         
-        <section class="mb-5">
-            <h2>Baptism</h2>
-            <p>Baptism is a sacred rite symbolizing commitment to Christ.</p>
-            <p>We offer baptism services and preparation classes for those seeking this step in their faith journey.</p>
+        <!-- Regions We Serve -->
+        <section class="section-padding">
+            <div class="container fade-up">
+                <h2 class="fw-bold mb-4 text-center">Regions We Serve</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <span class="badge bg-primary mb-2">Local</span>
+                                <h5 class="card-title">City & Neighborhoods</h5>
+                                <ul class="mb-0 list-unstyled">
+                                    <li class="mb-1"><i class="fa-solid fa-location-dot text-primary me-2"></i> Home groups and street outreach</li>
+                                    <li class="mb-1"><i class="fa-solid fa-hand-holding-heart text-primary me-2"></i> Food and care initiatives</li>
+                                    <li><i class="fa-solid fa-school text-primary me-2"></i> School and youth programs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <span class="badge bg-success mb-2">National</span>
+                                <h5 class="card-title">Across The Country</h5>
+                                <ul class="mb-0 list-unstyled">
+                                    <li class="mb-1"><i class="fa-solid fa-bus text-success me-2"></i> Regional missions & seminars</li>
+                                    <li class="mb-1"><i class="fa-solid fa-church text-success me-2"></i> Church strengthening & planting</li>
+                                    <li><i class="fa-solid fa-users-gear text-success me-2"></i> Leadership training</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <span class="badge bg-warning text-dark mb-2">International</span>
+                                <h5 class="card-title">Nations</h5>
+                                <ul class="mb-0 list-unstyled">
+                                    <li class="mb-1"><i class="fa-solid fa-earth-africa text-warning me-2"></i> Cross-cultural outreaches</li>
+                                    <li class="mb-1"><i class="fa-solid fa-language text-warning me-2"></i> Translation & resources</li>
+                                    <li><i class="fa-solid fa-dove text-warning me-2"></i> Prayer networks</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        
-        <section class="mb-5">
-            <h2>Seminar</h2>
-            <p>Our seminars provide in-depth teaching on biblical topics and spiritual growth.</p>
-            <p>Join us for enriching sessions led by experienced ministers and scholars.</p>
+
+        <!-- Key Initiatives -->
+        <section id="initiatives" class="section-padding section-alt">
+            <div class="container fade-up">
+                <h2 class="fw-bold mb-4 text-center">Key Initiatives</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <i class="fa-solid fa-bullhorn text-primary mb-3"></i>
+                                <h5 class="card-title">Evangelism</h5>
+                                <p class="card-text">City-wide outreaches, crusades, and personal evangelism training.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <i class="fa-solid fa-church text-success mb-3"></i>
+                                <h5 class="card-title">Church Planting</h5>
+                                <p class="card-text">Supporting new congregations and equipping local leaders.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <i class="fa-solid fa-hand-holding-heart text-warning mb-3"></i>
+                                <h5 class="card-title">Community Care</h5>
+                                <p class="card-text">Relief, food distribution, and practical support for families.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Field Stories -->
+        <section class="section-padding">
+            <div class="container fade-up">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6">
+                        <div class="rounded-3 border surface-soft p-2">
+                            <div id="missionsStoriesCarousel" class="carousel slide carousel-fade mini-carousel" data-bs-ride="carousel" data-bs-interval="2400">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="./assets/img/hero/home_hero_5.JPG" class="d-block w-100 rounded-3" alt="Baptism">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./assets/img/hero/about_hero_2.JPG" class="d-block w-100 rounded-3" alt="Prayer">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./assets/img/hero/about_hero_3.JPG" class="d-block w-100 rounded-3" alt="Teaching">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="fw-bold mb-3">Stories from the Field</h2>
+                        <blockquote class="p-4 bg-light rounded-3 border mb-3">
+                            <p class="mb-2">“We saw families restored and many come to Christ. Thank you for praying and partnering with us.”</p>
+                            <footer class="text-muted">SHWMI Missions Team</footer>
+                        </blockquote>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><i class="fa-solid fa-circle-check text-success me-2"></i> New home groups launched</li>
+                            <li class="mb-2"><i class="fa-solid fa-circle-check text-success me-2"></i> Relief provided to vulnerable families</li>
+                            <li><i class="fa-solid fa-circle-check text-success me-2"></i> Leaders trained for church planting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Trips -->
+        <section class="section-padding section-alt">
+            <div class="container fade-up">
+                <h2 class="fw-bold mb-4 text-center">Upcoming Trips</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-primary">Nov</span>
+                                    <small class="text-muted">2 weeks</small>
+                                </div>
+                                <h5 class="card-title mb-1">City Outreach</h5>
+                                <div class="text-muted mb-2"><i class="fa-solid fa-location-dot me-1"></i> Downtown</div>
+                                <p class="card-text mb-0">Evangelism, prayer tents, and family care packages.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-success">Jan</span>
+                                    <small class="text-muted">10 days</small>
+                                </div>
+                                <h5 class="card-title mb-1">Regional Seminar</h5>
+                                <div class="text-muted mb-2"><i class="fa-solid fa-location-dot me-1"></i> Northern Region</div>
+                                <p class="card-text mb-0">Leadership training and small group launches.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-warning text-dark">Mar</span>
+                                    <small class="text-muted">1 week</small>
+                                </div>
+                                <h5 class="card-title mb-1">International Mission</h5>
+                                <div class="text-muted mb-2"><i class="fa-solid fa-location-dot me-1"></i> East Africa</div>
+                                <p class="card-text mb-0">Outreaches, resource distribution, and follow-up.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ways to Partner -->
+        <section class="section-padding">
+            <div class="container fade-up">
+                <h2 class="fw-bold mb-4 text-center">Ways to Partner</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body text-center">
+                                <i class="fa-solid fa-hands-praying text-primary mb-3"></i>
+                                <h5 class="card-title">Pray</h5>
+                                <p class="card-text mb-0">Join our prayer updates and cover teams and communities in intercession.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body text-center">
+                                <i class="fa-solid fa-hand-holding-dollar text-success mb-3"></i>
+                                <h5 class="card-title">Give</h5>
+                                <p class="card-text mb-0">Support outreaches, church planting, and care initiatives.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 card-hover">
+                            <div class="card-body text-center">
+                                <i class="fa-solid fa-person-walking-luggage text-warning mb-3"></i>
+                                <h5 class="card-title">Go</h5>
+                                <p class="card-text mb-0">Serve on a short-term team or help locally with weekly outreach.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partner With Us CTA -->
+        <section id="partner" class="section-padding">
+            <div class="container fade-up">
+                <div class="gradient-cta p-5 text-center">
+                    <h2 class="fw-bold mb-2">Partner With Us</h2>
+                    <p class="mb-4">Your generosity fuels evangelism, church planting, and community care.</p>
+                    <a href="contact.html" class="btn btn-light">Get Involved</a>
+                </div>
+            </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer pt-5">
         <div class="container">
-            <div class="row align-items-center py-3">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; 2023 Send His Word Ministries International. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <div class="d-flex gap-3 justify-content-md-end justify-content-start mb-2">
-                        <a href="#" class="text-decoration-none text-dark" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="text-decoration-none text-dark" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-x-twitter fa-lg"></i></a>
-                        <a href="#" class="text-decoration-none text-dark" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-decoration-none text-dark" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube fa-lg"></i></a>
-                        <a href="https://wa.me/1234567890" class="text-decoration-none text-success" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp fa-lg"></i></a>
+            <div class="row g-4 pb-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="assets/img/logo/shwm_logo.png" alt="SHWMI logo" width="28" height="28" class="me-2">
+                        <h5 class="mb-0">Send His Word Ministries International</h5>
                     </div>
-                    <p class="mb-0">Contact: info@shwmi.org | Phone: +1 (123) 456-7890</p>
-                    <p class="mb-0">Address: 123 Faith Street, City, Country</p>
+                    <p class="mb-3">Preaching Christ. Building disciples. Serving communities with the love of God.</p>
+                    <div class="social d-flex gap-2">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/1234567890" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="text-uppercase fw-semibold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="about.html">About</a></li>
+                        <li class="mb-2"><a href="church-service.html">Services</a></li>
+                        <li class="mb-2"><a href="missions.html">Missions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <h6 class="text-uppercase fw-semibold mb-3">Ministries</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="discipleship.html">Discipleship</a></li>
+                        <li class="mb-2"><a href="healing-school.html">Healing School</a></li>
+                        <li class="mb-2"><a href="radio-ministry.html">Radio Ministry</a></li>
+                        <li><a href="testimony.html">Testimonies</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-12 col-lg-3">
+                    <h6 class="text-uppercase fw-semibold mb-3">Visit Us</h6>
+                    <ul class="list-unstyled mb-3">
+                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i>123 Faith Street, City, Country</li>
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2"></i>+1 (123) 456-7890</li>
+                        <li><i class="fa-solid fa-envelope me-2"></i>info@shwmi.org</li>
+                    </ul>
+                    <h6 class="text-uppercase fw-semibold mb-2">Service Times</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-1">Sunday Worship: 10:00 AM</li>
+                        <li class="mb-1">Midweek Prayer: Wed 6:30 PM</li>
+                        <li>Healing School: Fri 5:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom py-3">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    <small>© 2023 Send His Word Ministries International. All rights reserved.</small>
+                    <div class="small">Email: info@shwmi.org • Phone: +1 (123) 456-7890</div>
                 </div>
             </div>
         </div>

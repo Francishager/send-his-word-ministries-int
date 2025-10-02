@@ -50,3 +50,109 @@ if (navCollapse) {
 
   targets.forEach(el => io.observe(el));
 })();
+
+// WhatsApp chat popover (small composer near the floating icon)
+(function() {
+  const waButtons = document.querySelectorAll('a.whatsapp-float');
+  if (!waButtons.length) return;
+
+  // Build (or reuse) the popover composer
+  let popEl = document.getElementById('waChatPopover');
+  if (!popEl) {
+    popEl = document.createElement('div');
+    popEl.id = 'waChatPopover';
+    popEl.className = 'wa-composer d-none';
+    popEl.setAttribute('role', 'dialog');
+    popEl.setAttribute('aria-label', 'WhatsApp chat composer');
+    popEl.setAttribute('aria-hidden', 'true');
+    popEl.innerHTML = `
+      <div class="wa-header d-flex align-items-center gap-2">
+        <i class="fab fa-whatsapp text-white"></i>
+        <span class="small fw-semibold text-white">WhatsApp</span>
+      </div>
+      <form id="waChatForm" class="p-2">
+        <div class="wa-input d-flex align-items-end gap-2">
+          <textarea id="waMessage" class="form-control form-control-sm wa-textarea" rows="3" placeholder="Type a message" required></textarea>
+          <button type="submit" class="wa-send-btn" aria-label="Send"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+        <div class="wa-error">Please enter a message.</div>
+      </form>`;
+    document.body.appendChild(popEl);
+  }
+
+  const form = popEl.querySelector('#waChatForm');
+  const messageEl = popEl.querySelector('#waMessage');
+
+  function extractPhone(el) {
+    const dataPhone = el.getAttribute('data-wa-phone');
+    if (dataPhone) return dataPhone.replace(/\D/g, '');
+    const href = el.getAttribute('href') || '';
+    const match = href.match(/wa\.me\/(\d+)/);
+    if (match && match[1]) return match[1];
+    return '1234567890'; // fallback
+  }
+
+  function showPopover(phone) {
+    popEl.dataset.phone = phone;
+    popEl.classList.remove('d-none');
+    popEl.setAttribute('aria-hidden', 'false');
+    // Focus after next frame so it's reliably visible
+    requestAnimationFrame(() => messageEl.focus());
+  }
+
+  function hidePopover(clear = false) {
+    popEl.classList.add('d-none');
+    popEl.setAttribute('aria-hidden', 'true');
+    if (clear) messageEl.value = '';
+    messageEl.classList.remove('is-invalid');
+    popEl.classList.remove('show-error');
+  }
+
+  // Toggle on icon click
+  waButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const phone = extractPhone(btn);
+      // If already open for this phone, toggle/close
+      const isHidden = popEl.classList.contains('d-none');
+      if (isHidden || popEl.dataset.phone !== phone) {
+        showPopover(phone);
+      } else {
+        hidePopover();
+      }
+    }, { passive: false });
+  });
+
+  // Click outside to close
+  document.addEventListener('click', (e) => {
+    if (popEl.classList.contains('d-none')) return;
+    const isClickInside = popEl.contains(e.target) || e.target.closest('a.whatsapp-float');
+    if (!isClickInside) hidePopover();
+  });
+
+  // ESC to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') hidePopover();
+  });
+
+  // Remove invalid style on input
+  messageEl.addEventListener('input', () => {
+    messageEl.classList.remove('is-invalid');
+    popEl.classList.remove('show-error');
+  });
+
+  // Submit handler
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const text = messageEl.value.trim();
+    if (!text) {
+      messageEl.classList.add('is-invalid');
+      popEl.classList.add('show-error');
+      return;
+    }
+    const phone = popEl.dataset.phone || '1234567890';
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+    hidePopover(true);
+    window.open(url, '_blank');
+  });
+})();
