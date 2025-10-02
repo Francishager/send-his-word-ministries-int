@@ -1,4 +1,10 @@
 /* Shared site-wide styles */
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
 
 /* WhatsApp floating button */
 .whatsapp-float {
@@ -98,6 +104,10 @@
 .hero .carousel-caption { bottom: 2rem; z-index: 2; background: rgba(0,0,0,0.35); padding: 1rem 1.25rem; border-radius: 0.75rem; backdrop-filter: blur(4px); }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.65) 100%); z-index: 1; pointer-events: none; }
 
+/* Ensure hero carousel paints on its own layer to avoid flashes */
+.hero, .hero .carousel, .hero .carousel-inner { isolation: isolate; }
+.hero .carousel-inner { overflow: hidden; }
+
 /* Glass fixed navbar */
 .glass-nav {
   background: rgba(16,20,26,0.65);
@@ -174,5 +184,33 @@
 /* Mini carousels (section images) */
 .mini-carousel .carousel-item { height: 320px; }
 @media (min-width: 768px) { .mini-carousel .carousel-item { height: 360px; } }
-@media (min-width: 1200px) { .mini-carousel .carousel-item { height: 420px; } }
 .mini-carousel .carousel-item img { height: 100%; width: 100%; object-fit: cover; object-position: center; display: block; }
+
+/* Carousel UI tweaks */
+.carousel-indicators { display: none !important; }
+
+  /* Smooth, beautiful fade without flashing */
+  .carousel-fade .carousel-item {
+    transition: opacity .8s ease-in-out;
+    will-change: opacity;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-fade .carousel-item { transition: none; }
+  }
+
+  /* GPU-friendly hints to reduce flicker on fades */
+  .carousel-fade .carousel-item,
+  .carousel-fade .carousel-item img {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+/* Reinforce Bootstrap's fade layering to prevent momentary blanks */
+.carousel.carousel-fade { --bs-carousel-transition-duration: .8s; }
+.carousel.carousel-fade .carousel-item { opacity: 0; transform: none; transition-property: opacity; }
+.carousel.carousel-fade .carousel-item.active,
+.carousel.carousel-fade .carousel-item-next.carousel-item-start,
+.carousel.carousel-fade .carousel-item-prev.carousel-item-end { opacity: 1; z-index: 1; }
+.carousel.carousel-fade .active.carousel-item-start,
+.carousel.carousel-fade .active.carousel-item-end { opacity: 0; z-index: 0; transition: opacity 0s var(--bs-carousel-transition-duration); }

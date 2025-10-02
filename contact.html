@@ -8,6 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" href="assets/img/logo/shwm_logo.png">
     <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="preload" as="image" href="./assets/img/hero/home_hero_4.JPG">
+    <meta name="description" content="Contact SHWMI for prayer, questions, service times, and getting involved. We’d love to hear from you.">
+    <meta property="og:site_name" content="Send His Word Ministries International">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact - SHWMI">
+    <meta property="og:description" content="Send a message, request prayer, and plan your visit. We’re here to help.">
+    <meta property="og:image" content="https://example.com/assets/img/hero/home_hero_4.JPG">
+    <meta property="og:url" content="https://example.com/contact.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact - SHWMI">
+    <meta name="twitter:description" content="Send a message, request prayer, and plan your visit. We’re here to help.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero/home_hero_4.JPG">
+    <link rel="canonical" href="https://example.com/contact.html">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Send His Word Ministries International","url":"https://example.com/","logo":"https://example.com/assets/img/logo/shwm_logo.png"}</script>
 </head>
 <body>
     <!-- Header -->
@@ -41,36 +62,29 @@
     <!-- Hero Section -->
     <section class="hero">
         <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-            </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="./assets/img/hero/home_hero_4.JPG" class="d-block w-100" alt="Contact us at SHWMI" loading="eager">
+                    <img src="./assets/img/hero/home_hero_4.JPG" class="d-block w-100" alt="Contact us at SHWMI" loading="eager" fetchpriority="high" decoding="async">
                     <div class="carousel-caption fade-up">
                         <h1 class="display-6 fw-bold">We’re Here to Help</h1>
                         <p>Questions, prayer, or getting involved—we’d love to hear from you.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="./assets/img/hero/about_hero_4.JPG" class="d-block w-100" alt="Prayer Requests" loading="lazy">
+                    <img src="./assets/img/hero/about_hero_4.JPG" class="d-block w-100" alt="Prayer Requests">
                     <div class="carousel-caption fade-up">
                         <h2 class="h1 fw-bold">Prayer Requests</h2>
                         <p>Send your prayer needs; our team will stand with you in faith.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="./assets/img/hero/home_hero_2.JPG" class="d-block w-100" alt="Visit Us" loading="lazy">
+                    <img src="./assets/img/hero/home_hero_2.JPG" class="d-block w-100" alt="Visit Us">
                 </div>
                 <div class="carousel-item">
-                    <img src="./assets/img/hero/home_hero_1.JPG" class="d-block w-100" alt="Connect Now" loading="lazy">
+                    <img src="./assets/img/hero/home_hero_1.JPG" class="d-block w-100" alt="Connect Now">
                 </div>
                 <div class="carousel-item">
-                    <img src="./assets/img/hero/about_hero_3.JPG" class="d-block w-100" alt="Community" loading="lazy">
+                    <img src="./assets/img/hero/about_hero_3.JPG" class="d-block w-100" alt="Community">
                 </div>
             </div>
             
@@ -140,7 +154,7 @@
                 <div class="row align-items-center g-4">
                     <div class="col-lg-6">
                         <div class="rounded-3 border surface-soft p-2">
-                            <div id="visitCarousel" class="carousel slide carousel-fade mini-carousel" data-bs-ride="carousel" data-bs-interval="2400">
+                            <div id="visitCarousel" class="carousel slide carousel-fade mini-carousel" data-bs-ride="carousel" data-bs-interval="2000">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
                                         <img src="./assets/img/hero/home_hero_1.JPG" class="d-block w-100 rounded-3" alt="Worship">
@@ -282,7 +296,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>

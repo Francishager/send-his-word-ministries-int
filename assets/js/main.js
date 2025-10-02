@@ -156,3 +156,64 @@ if (navCollapse) {
     window.open(url, '_blank');
   });
 })();
+
+// Pre-decode carousel images to avoid black flashes during fade transitions
+(() => {
+  const carousels = document.querySelectorAll('.carousel.carousel-fade');
+  if (!carousels.length || typeof bootstrap === 'undefined') return;
+
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return; // don't alter behavior for reduced motion users
+
+  function decodeImg(img) {
+    if (!img) return Promise.resolve();
+    if (img.complete) return Promise.resolve();
+    if (typeof img.decode === 'function') {
+      return img.decode().catch(() => {});
+    }
+    return new Promise((resolve) => {
+      img.addEventListener('load', resolve, { once: true });
+      img.addEventListener('error', resolve, { once: true });
+    });
+  }
+
+  function nextItem(carouselEl, fromItem) {
+    const items = Array.from(carouselEl.querySelectorAll('.carousel-item'));
+    if (!items.length) return null;
+    const startIndex = Math.max(0, items.indexOf(fromItem));
+    const nextIndex = (startIndex + 1) % items.length;
+    return items[nextIndex] || null;
+  }
+
+  carousels.forEach((el) => {
+    const instance = bootstrap.Carousel.getOrCreateInstance(el);
+    // Pause auto-cycling until we decode the first two slides
+    instance.pause();
+
+    const isHero = !!el.closest('.hero');
+    if (isHero) {
+      // Decode all hero images up-front to avoid any mid-sequence flashes
+      const imgs = Array.from(el.querySelectorAll('.carousel-item img'));
+      Promise.allSettled(imgs.map(decodeImg)).then(() => {
+        requestAnimationFrame(() => instance.cycle());
+      });
+    } else {
+      // Non-hero: decode first two, then start
+      const active = el.querySelector('.carousel-item.active');
+      const upcoming = nextItem(el, active);
+      const activeImg = active ? active.querySelector('img') : null;
+      const upcomingImg = upcoming ? upcoming.querySelector('img') : null;
+      Promise.allSettled([decodeImg(activeImg), decodeImg(upcomingImg)]).then(() => {
+        requestAnimationFrame(() => instance.cycle());
+      });
+    }
+
+    // After each slide, decode the next upcoming slide's image
+    el.addEventListener('slid.bs.carousel', (e) => {
+      const current = e.relatedTarget; // now-active .carousel-item
+      const upNext = nextItem(el, current);
+      const img = upNext ? upNext.querySelector('img') : null;
+      decodeImg(img);
+    });
+  });
+})();
