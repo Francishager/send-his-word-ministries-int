@@ -1,0 +1,4 @@
+# Protect sensitive config files from direct HTTP access (Apache 2.4+)
+<FilesMatch "^(\.env(\.local)?|credentials\.php)$">
+  Require all denied
+</FilesMatch>

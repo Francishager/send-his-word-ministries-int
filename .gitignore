@@ -1,0 +1,7 @@
+# Ignore local credentials and logs
+config/credentials.php
+storage/
+
+# Ignore environment files
+.env
+config/.env

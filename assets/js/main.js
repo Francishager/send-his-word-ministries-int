@@ -157,6 +157,56 @@ if (navCollapse) {
   });
 })();
 
+// AJAX newsletter subscription (in-page)
+(() => {
+  const form = document.getElementById('newsletterForm');
+  if (!form) return;
+  const statusEl = document.getElementById('newsletterStatus');
+  const submitBtn = document.getElementById('newsletterSubmit');
+
+  function setStatus(type, text) {
+    if (!statusEl) return;
+    statusEl.className = 'alert mt-3 alert-' + (type === 'success' ? 'success' : 'danger');
+    statusEl.textContent = text;
+    statusEl.classList.remove('d-none');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (statusEl) statusEl.classList.add('d-none');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = submitBtn?.dataset?.loading || 'Subscribing...';
+    }
+
+    try {
+      const fd = new FormData(form);
+      const action = form.getAttribute('action') || 'subscribe.php';
+      const resp = await fetch(action, {
+        method: 'POST',
+        body: fd,
+        headers: { 'Accept': 'application/json' },
+        credentials: 'same-origin'
+      });
+      const data = await resp.json().catch(() => null);
+      if (resp.ok && data && data.ok) {
+        setStatus('success', data.message || 'Subscribed! Thank you.');
+        form.reset();
+      } else {
+        const msg = data && data.error ? data.error : 'Unable to subscribe at the moment. Please try again later.';
+        setStatus('error', msg);
+      }
+    } catch (err) {
+      setStatus('error', 'Network error. Please try again.');
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitBtn?.dataset?.text || 'Subscribe';
+      }
+    }
+  });
+})();
+
 // Pre-decode carousel images to avoid black flashes during fade transitions
 (() => {
   const carousels = document.querySelectorAll('.carousel.carousel-fade');
@@ -215,5 +265,55 @@ if (navCollapse) {
       const img = upNext ? upNext.querySelector('img') : null;
       decodeImg(img);
     });
+  });
+})();
+
+// AJAX contact form submission (in-page send)
+(() => {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  const statusEl = document.getElementById('contactStatus');
+  const submitBtn = document.getElementById('contactSubmit');
+
+  function setStatus(type, text) {
+    if (!statusEl) return;
+    statusEl.className = 'alert mt-3 alert-' + (type === 'success' ? 'success' : 'danger');
+    statusEl.textContent = text;
+    statusEl.classList.remove('d-none');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (statusEl) statusEl.classList.add('d-none');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = submitBtn?.dataset?.loading || 'Sending...';
+    }
+
+    try {
+      const fd = new FormData(form);
+      const action = form.getAttribute('action') || 'contact.php';
+      const resp = await fetch(action, {
+        method: 'POST',
+        body: fd,
+        headers: { 'Accept': 'application/json' },
+        credentials: 'same-origin'
+      });
+      const data = await resp.json().catch(() => null);
+      if (resp.ok && data && data.ok) {
+        setStatus('success', data.message || 'Message sent. Thank you!');
+        form.reset();
+      } else {
+        const msg = data && data.error ? data.error : 'Unable to subscribe at the moment. Please try again later.';
+        setStatus('error', msg);
+      }
+    } catch (err) {
+      setStatus('error', 'Network error. Please try again.');
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitBtn?.dataset?.text || 'Subscribe';
+      }
+    }
   });
 })();

@@ -39,7 +39,7 @@
                     <img src="assets/img/logo/shwm_logo.png" alt="SHWMI logo" width="28" height="28" class="me-2">
                     <span>SHWMI</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation" aria-controls="navbarNav" aria-expanded="false">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -52,6 +52,7 @@
                         <li class="nav-item"><a class="nav-link" href="church-service.html">Church Service</a></li>
                         <li class="nav-item"><a class="nav-link" href="healing-school.html">Healing School</a></li>
                         <li class="nav-item"><a class="nav-link" href="radio-ministry.html">Radio Ministry</a></li>
+                        <li class="nav-item"><a class="nav-link" href="give.html">Give</a></li>
                         <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -64,7 +65,7 @@
         <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="./assets/img/hero/home_hero_4.JPG" class="d-block w-100" alt="Contact us at SHWMI" loading="eager" fetchpriority="high" decoding="async">
+                    <img src="./assets/img/hero/home_hero_4.JPG" class="d-block w-100" alt="Contact us at SHWMI" loading="eager" decoding="async">
                     <div class="carousel-caption fade-up">
                         <h1 class="display-6 fw-bold">We’re Here to Help</h1>
                         <p>Questions, prayer, or getting involved—we’d love to hear from you.</p>
@@ -118,26 +119,31 @@
                         <div class="card h-100 card-hover">
                             <div class="card-body">
                                 <h2 class="h4 mb-3">Send a Message</h2>
-                                <form>
+                                <form id="contactForm" action="mailer.php" method="post" novalidate>
                                     <div class="row g-3">
                                         <div class="col-md-6">
                                             <label for="name" class="form-label">Name</label>
-                                            <input type="text" class="form-control" id="name" required>
+                                            <input type="text" class="form-control" id="name" name="name" required>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="email" required>
+                                            <input type="email" class="form-control" id="email" name="email" required>
                                         </div>
                                         <div class="col-12">
                                             <label for="subject" class="form-label">Subject</label>
-                                            <input type="text" class="form-control" id="subject">
+                                            <input type="text" class="form-control" id="subject" name="subject">
                                         </div>
                                         <div class="col-12">
                                             <label for="message" class="form-label">Message</label>
-                                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                        </div>
+                                        <!-- Honeypot field: hidden from users -->
+                                        <input type="hidden" id="website" name="website" autocomplete="off">
+                                        <div class="col-12">
+                                            <button type="submit" id="contactSubmit" class="btn btn-primary" data-text="Send Message" data-loading="Sending...">Send Message</button>
                                         </div>
                                         <div class="col-12">
-                                            <button type="submit" class="btn btn-primary">Send Message</button>
+                                            <div id="contactStatus" class="alert d-none mt-3" role="alert" aria-live="polite"></div>
                                         </div>
                                     </div>
                                 </form>
@@ -242,7 +248,7 @@
                     <p class="mb-3">Preaching Christ. Building disciples. Serving communities with the love of God.</p>
                     <div class="social d-flex gap-2">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" aria-label="X"><i class="fab fa-x"></i></a>
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                         <a href="https://wa.me/1234567890" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -255,6 +261,7 @@
                         <li class="mb-2"><a href="about.html">About</a></li>
                         <li class="mb-2"><a href="church-service.html">Services</a></li>
                         <li class="mb-2"><a href="missions.html">Missions</a></li>
+                        <li class="mb-2"><a href="give.html">Give</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -292,7 +299,7 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/1234567890" class="btn btn-success whatsapp-float" target="_blank">
+    <a href="https://wa.me/1234567890" class="btn btn-success whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp chat">
         <i class="fab fa-whatsapp"></i>
     </a>
 

@@ -101,7 +101,7 @@ body {
 .hero { margin-top: 0; background-color: #000; position: relative; overflow: hidden; }
 .hero .carousel-item { height: 100vh; }
 .hero .carousel-item img { height: 100vh; width: 100%; object-fit: cover; object-position: center 25%; }
-.hero .carousel-caption { bottom: 2rem; z-index: 2; background: rgba(0,0,0,0.35); padding: 1rem 1.25rem; border-radius: 0.75rem; backdrop-filter: blur(4px); }
+.hero .carousel-caption { bottom: 2rem; z-index: 2; background: rgba(0,0,0,0.35); padding: 1rem 1.25rem; border-radius: 0.75rem; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.65) 100%); z-index: 1; pointer-events: none; }
 
 /* Ensure hero carousel paints on its own layer to avoid flashes */
@@ -111,12 +111,27 @@ body {
 /* Glass fixed navbar */
 .glass-nav {
   background: rgba(16,20,26,0.65);
-  backdrop-filter: saturate(180%) blur(12px);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
+  backdrop-filter: saturate(180%) blur(12px);
   box-shadow: 0 2px 18px rgba(0,0,0,0.35);
   z-index: 1080;
 }
+
+/* Ensure giving modal floats above navbar */
+.modal { z-index: 1100; }
+.modal-backdrop { z-index: 1095; }
 .navbar-brand { font-weight: 700; letter-spacing: 0.5px; }
+
+/* Intl-tel-input: make custom search bar visible at top of dropdown */
+.iti__search-wrap {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 2;
+}
+.iti__search-wrap .form-control {
+  font-size: 0.875rem;
+}
 
 /* Sections & cards */
 .section-padding { padding-top: 3rem; padding-bottom: 3rem; }
@@ -148,6 +163,12 @@ body {
 /* Links on dark sections */
 .home-intro a, .home-ministries a, .home-featured a, .home-events a, .home-testimonies a, .home-donate a, .home-newsletter a { color: #8bb4ff; }
 .home-intro a:hover, .home-ministries a:hover, .home-featured a:hover, .home-events a:hover, .home-testimonies a:hover, .home-donate a:hover, .home-newsletter a:hover { color: #a9c7ff; }
+
+/* Newsletter form width cap so input isn’t overly wide */
+.home-newsletter .newsletter-form { max-width: 420px; margin-left: auto; }
+@media (max-width: 575.98px) { /* full width on small screens */
+  .home-newsletter .newsletter-form { max-width: 100%; }
+}
 
 /* Cards on dark sections */
 .home-ministries .card, .home-events .card, .home-testimonies .card { background-color: #141a22; border-color: #28303a; color: #e6ebf2; }
@@ -201,8 +222,8 @@ body {
   /* GPU-friendly hints to reduce flicker on fades */
   .carousel-fade .carousel-item,
   .carousel-fade .carousel-item img {
-    backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     transform: translateZ(0);
   }
 
