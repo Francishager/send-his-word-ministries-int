@@ -112,7 +112,14 @@
         const cleaned = phoneInput.value.replace(/[^0-9()\-\s]/g, '');
         if (cleaned !== phoneInput.value) phoneInput.value = cleaned;
         const digits = countDigits(phoneInput.value);
-        if (digits > maxDigits) {
+        // Validate with plugin for "too long" per-country, fallback to placeholder heuristic
+        let tooLong = false;
+        if (iti && typeof iti.getValidationError === 'function') {
+          const err = iti.getValidationError();
+          // 3 = TOO_LONG in intl-tel-input
+          if (err === 3) tooLong = true;
+        }
+        if (tooLong || digits > maxDigits) {
           phoneInput.value = lastPhoneValue;
           setPhoneHelp('Phone number too long for selected country.', true);
         } else {
@@ -138,6 +145,27 @@
 
   // External country search input next to phone input
   const phoneSearch = document.getElementById('phoneCountrySearch');
+  const allCountries = (window.intlTelInputGlobals && window.intlTelInputGlobals.getCountryData) ? window.intlTelInputGlobals.getCountryData() : [];
+
+  function normalize(str){ return (str || '').toString().trim().toLowerCase(); }
+  function digitsOnly(str){ return (str || '').replace(/\D+/g, ''); }
+  function bestMatchCountry(query){
+    const q = normalize(query);
+    if (!q) return null;
+    const qDigits = digitsOnly(q).replace(/^0+/, '');
+    // 1) Match by dial code if digits entered (like +256 or 256)
+    if (qDigits) {
+      const dialMatch = allCountries.find(c => c.dialCode === qDigits);
+      if (dialMatch) return dialMatch;
+    }
+    // 2) Match by ISO2 (e.g., 'ug') or start of name, then includes
+    let match = allCountries.find(c => normalize(c.iso2) === q || normalize(c.iso2).startsWith(q));
+    if (match) return match;
+    match = allCountries.find(c => normalize(c.name).startsWith(q));
+    if (match) return match;
+    match = allCountries.find(c => normalize(c.name).includes(q));
+    return match || null;
+  }
   function openPhoneDropdown() {
     const container = phoneInput?.closest('.iti');
     const flag = container?.querySelector('.iti__selected-flag, .iti__flag-container');
@@ -164,11 +192,19 @@
   if (phoneSearch) {
     phoneSearch.addEventListener('focus', function(){
       openPhoneDropdown();
-      setTimeout(function(){ filterCountryList(phoneSearch.value); }, 0);
+      setTimeout(function(){
+        const m = bestMatchCountry(phoneSearch.value);
+        if (m && iti && m.iso2) { iti.setCountry(m.iso2); updateMaxDigitsFromPlaceholder(); }
+        filterCountryList(phoneSearch.value);
+      }, 0);
     });
     phoneSearch.addEventListener('input', function(){
       openPhoneDropdown();
-      setTimeout(function(){ filterCountryList(phoneSearch.value); }, 0);
+      setTimeout(function(){
+        const m = bestMatchCountry(phoneSearch.value);
+        if (m && iti && m.iso2) { iti.setCountry(m.iso2); updateMaxDigitsFromPlaceholder(); }
+        filterCountryList(phoneSearch.value);
+      }, 0);
     });
     phoneSearch.addEventListener('keydown', function(e){
       if (e.key === 'Enter') {
@@ -177,6 +213,8 @@
         setTimeout(function(){
           const list = document.querySelector('.iti__country-list');
           if (!list) return;
+          const m = bestMatchCountry(phoneSearch.value);
+          if (m && iti && m.iso2) { iti.setCountry(m.iso2); updateMaxDigitsFromPlaceholder(); }
           const firstVisible = Array.from(list.querySelectorAll('.iti__country')).find(li => li.style.display !== 'none');
           if (firstVisible) firstVisible.dispatchEvent(new MouseEvent('click', { bubbles: true }));
         }, 0);
